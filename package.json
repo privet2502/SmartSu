@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@vueuse/core": "^11.0.3",
+    "nodemailer": "^6.9.15",
+    "nuxt": "^3.13.0",
+    "nuxt-mail": "^5.0.1",
+    "sass": "^1.78.0",
+    "vue": "latest",
+    "vue-router": "latest",
+    "vue-the-mask": "^0.11.1"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.15"
+  }
+}

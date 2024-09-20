@@ -1,0 +1,26 @@
+variables:
+    IMAGE_NAME: "landing"
+    SERVICE_NAME: "landing"
+    DOCKER_COMPOSE_FILE: "/home/landing/docker-compose.yml"
+
+stages:
+  - build
+  - deploy
+
+docker-build:
+  stage: build
+  tags:
+    - landing
+  only:
+    - master
+  script:
+    - docker build -t $IMAGE_NAME .
+
+docker-deploy:
+  stage: deploy
+  tags:
+    - landing
+  only:
+    - master
+  script:
+    - docker-compose -f $DOCKER_COMPOSE_FILE up -d $SERVICE_NAME

@@ -1,0 +1,187 @@
+.footer {
+  width: 100%;
+  background-color: #141414;
+  position: relative;
+  z-index: 10;
+  padding-top: 1rem;
+  @media (max-width: 932px) {
+    padding: 1rem 4rem;
+  }
+  @media (max-width: 430px) {
+    padding: 1rem 2rem;
+  }
+  .footer-layouts {
+    gap: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #3a94cf;
+    @media (max-width: 1024px) {
+      gap: 1rem;
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media (max-width: 930px) {
+      display: flex;
+      flex-direction: column;
+    }
+    .footer-logo-col {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: start;
+      }
+      figure {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        @media (max-width: 570px) {
+          width: 100%;
+          .footer-logo {
+            width: 100%;
+          }
+        }
+      }
+      .info {
+        display: flex;
+        align-items: center;
+        @media (max-width: 435px) {
+          flex-direction: column;
+          align-items: start;
+          gap: 1rem;
+        }
+        a {
+          color: #a1a1a1;
+          @media (max-width: 1024px) {
+            font-size: 14px;
+          }
+        }
+      }
+      .info a {
+        text-decoration: none;
+        position: relative;
+        padding: 0 0.75rem;
+      }
+      .info a:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 16px;
+        width: 1px;
+        background-color: #a1a1a1;
+        @media (max-width: 435px) {
+          display: none;
+        }
+      }
+    }
+    .footer-links {
+      grid-column: span 1;
+      color: #a1a1a1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      @media (max-width: 930px) {
+        gap: 0;
+      }
+      .link-header {
+        @media (max-width: 930px) {
+          display: flex;
+          justify-content: space-between;
+        }
+        .links-title {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: white;
+          margin-bottom: 1rem;
+          @media (max-width: 1024px) {
+            font-size: 1rem;
+          }
+          @media (max-width: 930px) {
+            margin-bottom: 0;
+          }
+        }
+        .arrow-down {
+          display: none;
+          transition: ease 500ms;
+          @media (max-width: 930px) {
+            display: block;
+          }
+        }
+        .arrow-down.active {
+          transform: rotate(180deg);
+        }
+      }
+      .links-layouts {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        @media (max-width: 930px) {
+          overflow-x: hidden;
+          transition: max-height 300ms ease, margin-top 300ms ease;
+          max-height: 0;
+          margin-top: 0;
+        }
+        li {
+          @media (max-width: 1024px) {
+            font-size: 14px;
+          }
+        }
+      }
+      .links-layouts.active {
+        margin-top: 1rem;
+        max-height: 1000px;
+      }
+    }
+  }
+  .footer-desc {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    color: #a1a1a1;
+    @media (max-width: 570px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    p {
+      @media (max-width: 1024px) {
+        font-size: 14px;
+      }
+    }
+    .info {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      a {
+        color: #a1a1a1;
+        position: relative;
+        padding: 0 4rem 0 0;
+        @media (max-width: 1440px) {
+          padding: 0;
+        }
+        @media (max-width: 1024px) {
+          width: 49%;
+          text-align: start;
+        }
+        @media (max-width: 932px) {
+          width: 100%;
+          text-align: start;
+        }
+      }
+    }
+    .info a:not(:last-child)::after {
+      content: "|";
+      position: absolute;
+      right: 0;
+      @media (max-width: 1440px) {
+        display: none;
+      }
+    }
+  }
+}

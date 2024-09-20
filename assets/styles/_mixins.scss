@@ -1,0 +1,14 @@
+@mixin container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 1440px) {
+    width: 100%;
+  }
+  @media (max-width: 1439px) {
+    width: 80%;
+  }
+  @media (max-width: 932px) {
+    width: 100%;
+  }
+}

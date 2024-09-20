@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import "@/assets/styles/mixins.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+}
+html {
+  scroll-behavior: smooth;
+}
+a:-webkit-any-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.container {
+  @include container;
+}
+li {
+  list-style: none;
+}
+
+.form-radio-item input[type="radio"] {
+  display: none;
+}
+
+.mobileHide {
+  @media (max-width: 830px) {
+    display: none !important;
+  }
+}
+

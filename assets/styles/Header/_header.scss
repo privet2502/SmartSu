@@ -1,0 +1,181 @@
+@import "@/assets/styles/mixins.scss";
+.header {
+  position: fixed;
+  top: 2rem;
+  z-index: 50;
+  @include container;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1a1a;
+  border: 1px solid #262626;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0px 8px 10px 0px #00000033, 0px 6px 30px 0px #0000001f, 0px 16px 24px 0px #00000024;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  @media (max-width: 932px) {
+    top: 0;  // Закрепляем шапку на самом верху
+    left: 0;  // Центрирование убираем
+    width: 100%;  // Ширина на весь экран
+    border-radius: 0;
+    transform: none;  // Убираем translateX для фиксированного положения
+    transition: none;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 30;
+  }
+
+  .header-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    @media (max-width: 932px) {
+      display: none;
+    }
+    ul {
+      display: flex;
+      gap: 3rem;
+      @media (max-width: 1240px) {
+        gap: 1.5rem;
+      }
+      @media (max-width: 1024px) {
+        gap: 1rem;
+      }
+      li {
+        text-decoration: none;
+        list-style: none;
+        a {
+          color: #fff;
+          @media (max-width: 1240px) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+  .header-auth {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    @media (max-width: 1240px) {
+      gap: 0.25rem;
+    }
+    @media (max-width: 932px) {
+      display: none;  // Прячем на маленьких экранах
+    }
+    figure {
+      display: flex;
+      align-items: center;
+    }
+    .auth-text {
+      color: white;
+      @media (max-width: 1240px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+.header.hide {
+  pointer-events: none;
+  opacity: 0;
+  @media (max-width: 932px) {
+    top: 0;  // Закрепляем шапку на самом верху
+    left: 0;  // Центрирование убираем
+    width: 100%;  // Ширина на весь экран
+    border-radius: 0;
+    transform: none;  // Убираем translateX для фиксированного положения
+    transition: none;
+    opacity: 1;
+
+  }
+}
+.menu {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  top: 50%;
+  right: 1rem;
+  transform: translate(-50%);
+  z-index: 30;
+  display: none;
+  @media (max-width: 932px) {
+    display: block;
+  }
+}
+.bar {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.bar:before,
+.bar:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.bar:before {
+  top: -10px;
+}
+.bar:after {
+  top: 10px;
+}
+.menu.active .bar {
+  transform: rotate(45deg);
+}
+.menu.active .bar:before {
+  top: 0;
+  transform: rotate(90deg);
+}
+.menu.active .bar:after {
+  opacity: 0;
+}
+
+.menu-nav {
+  position: fixed;
+  top: 56px;
+  width: 100%;
+  height: calc(100vh - 56px);
+  background: #000;
+  opacity: 80%;
+  z-index: 20;
+}
+.menu-header-navigation {
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    li {
+      display: flex;
+      justify-content: center;
+      a {
+        color: #fff;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+      .header-auth {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+  }
+}
